@@ -10,7 +10,7 @@ import java.util.Map;
 public class calcStepDefs
 {
     double num1,num2;
-    double actual_result;int actal_bill;
+    double actual_result;double actal_bill;
     List<Double> numbers;
     Map<String,Double> items;
     Map<String,Integer> cart;io.cucumber.datatable.DataTable dtable;
@@ -36,8 +36,9 @@ public class calcStepDefs
 
 
     @Then("Result should be {double}")
-    public void resultShouldBe(Double exp_result)
+    public void resultShouldBe(double exp_result)
     {
-        Assert.assertEquals(exp_result, actual_result, .01);
+        Assert.assertEquals(Double.valueOf(exp_result), actual_result, .01);
     }
+
 }

@@ -15,3 +15,16 @@ Feature: this is a feature test for calculator
     When Divide those two numbers
     Then Result should be 3.00
 
+  Scenario Outline: This Scenario will test addition of two numbers
+    Given Two numbers <num1> and <num2>
+    When Add those two numbers
+    Then Result should be <result>
+
+    Examples:
+      | num1  | num2  | result |
+      | 12.20 | 21.70 | 33.9  |
+      | 30.32 | 21.17 | 51.49  |
+      | 11.40 | 11.20 | 22.60  |
+      | 32.65 | 22.52 | 55.17  |
+
+
