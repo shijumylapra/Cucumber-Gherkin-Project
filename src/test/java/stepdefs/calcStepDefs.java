@@ -17,14 +17,25 @@ public class calcStepDefs
 
     @Given("Two numbers {double} and {double}")
     public void two_numbers_and(double int1, double int2) {num1= int1;num2= int2; }
-
     @When("Add those two numbers")
     public void add_those_two_numbers()
     {
         actual_result= num1+num2;
     }
+    @When("Subtract those two numbers")
+    public void substract_those_two_numbers() {
+        actual_result= num1-num2;
+    }
+    @When("Divide those two numbers")
+    public void divide_those_two_numbers()
+    {
+        actual_result= num1/num2;
+    }
+    @When("Add those numbers")
+    public void add_those_numbers() {actual_result= num1+num2;}
 
-    @Then("Result should be  {double}")
+
+    @Then("Result should be {double}")
     public void resultShouldBe(Double exp_result)
     {
         Assert.assertEquals(exp_result, actual_result, .01);
