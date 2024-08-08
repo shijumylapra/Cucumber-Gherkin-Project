@@ -48,10 +48,45 @@ public class calcStepDefs
         }
     }
 
-    @Then("Result should be {double}")
+    @Given("Below items are added to the cart")
+    public void below_items_are_added_to_the_cart(Map<String,Double> cart)
+    {
+        this.items = cart;
+    }
+
+    @When("I do the checkout")
+    public void i_do_the_checkout()
+    {
+        for(String x:items.keySet())
+        {
+            actual_result=actual_result+items.get(x);
+        }
+    }
+
+    @Given("Below items, price and qty are added to the cart")
+    public void below_items_price_and_qty_are_added_to_the_cart(io.cucumber.datatable.DataTable cart)
+    {
+        this.dtable=cart;
+    }
+
+    @When("I do the item checkout")
+    public void i_do_the_item_checkout()
+    {
+        for(int i=0;i<=this.dtable.height()-1;i++)
+        {
+            String item = dtable.cell(i,0);
+            actual_result= actual_result+Double.parseDouble(dtable.cell(i, 1)) * Double.parseDouble(dtable.cell(i, 2));
+        }
+       // System.out.println("-------------"+actual_result);
+    }
+
+   @Then("Result should be {double}")
     public void resultShouldBe(double exp_result)
     {
         Assert.assertEquals(Double.valueOf(exp_result), actual_result, .01);
     }
+
+
+
 
 }
