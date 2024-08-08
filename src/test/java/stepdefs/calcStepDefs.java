@@ -10,7 +10,7 @@ import java.util.Map;
 public class calcStepDefs
 {
     double num1,num2;
-    double actual_result;int actal_bill;
+    double actual_result;double actal_bill;
     List<Double> numbers;
     Map<String,Double> items;
     Map<String,Integer> cart;io.cucumber.datatable.DataTable dtable;
@@ -35,9 +35,23 @@ public class calcStepDefs
     public void add_those_numbers() {actual_result= num1+num2;}
 
 
-    @Then("Result should be {double}")
-    public void resultShouldBe(Double exp_result)
+    @Given("I have below numbers")
+    public void i_have_below_numbers(List<Double> Lst1)
     {
-        Assert.assertEquals(exp_result, actual_result, .01);
+        this.numbers=Lst1;
     }
+
+    @When("I add above numbers")
+    public void i_add_above_numbers() {
+        for (double num : numbers) {
+            actual_result = actual_result + num;
+        }
+    }
+
+    @Then("Result should be {double}")
+    public void resultShouldBe(double exp_result)
+    {
+        Assert.assertEquals(Double.valueOf(exp_result), actual_result, .01);
+    }
+
 }
