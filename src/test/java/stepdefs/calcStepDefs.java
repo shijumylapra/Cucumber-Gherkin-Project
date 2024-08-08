@@ -35,6 +35,19 @@ public class calcStepDefs
     public void add_those_numbers() {actual_result= num1+num2;}
 
 
+    @Given("I have below numbers")
+    public void i_have_below_numbers(List<Double> Lst1)
+    {
+        this.numbers=Lst1;
+    }
+
+    @When("I add above numbers")
+    public void i_add_above_numbers() {
+        for (double num : numbers) {
+            actual_result = actual_result + num;
+        }
+    }
+
     @Then("Result should be {double}")
     public void resultShouldBe(double exp_result)
     {

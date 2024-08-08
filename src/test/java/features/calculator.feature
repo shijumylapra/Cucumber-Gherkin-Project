@@ -27,4 +27,12 @@ Feature: this is a feature test for calculator
       | 11.40 | 11.20 | 22.60  |
       | 32.65 | 22.52 | 55.17  |
 
-
+  Scenario: This Scenario will add two or more numbers and validate the results
+    Given I have below numbers
+      | 100 |
+      | 125 |
+      |  33 |
+      |  41 |
+      |   7 |
+    When I add above numbers
+    Then Result should be 306
