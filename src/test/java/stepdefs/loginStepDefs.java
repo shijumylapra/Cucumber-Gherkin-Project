@@ -20,7 +20,6 @@ public class loginStepDefs
     @Given("I have launched the application")
     public void i_have_launched_the_application()
     {
-        webDrv = new ChromeDriver();
         webDrv.get("https://simplilearn.com/");
         webDrv.manage().window().maximize();
         webDrv.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

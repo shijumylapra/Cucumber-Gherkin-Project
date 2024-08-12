@@ -1,6 +1,6 @@
+@Regression
 Feature: This feature will validate login scenarios for simplilearn.com
 
-  @US_1001
   Scenario: Validate the different login options present on the login screen
     Given I have launched the application
     And I click on the Login link
