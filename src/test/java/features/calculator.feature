@@ -1,3 +1,4 @@
+@Calculator
 Feature: this is a feature test for calculator
 
   Scenario: this scenario wii test addition of two numbers
